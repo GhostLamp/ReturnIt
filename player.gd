@@ -1,11 +1,21 @@
 extends CharacterBody2D
 class_name Player
 
+# o invetario de items que aparece na topo da direita
+@onready var invetory: VBoxContainer = $CanvasLayer/invetory
+
+# a textura atras do inventario
+@onready var inventory_background: ColorRect = $CanvasLayer/inventoryBackground
+
 #o array pra guardar todos os items
 @export var items:Array[BaseItem]
 
+# é criado pra mostrar a cor e o nome dos items que vc tem no iventario
+@export var itemDisplay:PackedScene
+
 @export var speed:float = 400
 @export var accel:float = 4000
+
 
 # eu uso esse array pra guardar todas as coisas que o jogador pode interagir no momento
 # a door e o item holder se colocam aqui quando o jogador entra na area e se tiram quando ele sai
@@ -78,6 +88,25 @@ func movement(delta: float):
 			i.on_wall(self)
 	
 	move_and_slide()
+
+
+func add_item(item:BaseItem):
+	# adiciona o item nos items do jogador, e cria um display no invetario
+	items.append(item)
+	var new_display:ItemDisplay = itemDisplay.instantiate()
+	new_display.displayText  = item.name
+	new_display.displayColor = item.color
+	invetory.call_deferred("add_child",new_display)
+	
+	# uma referencia do display no item
+	item.display = new_display
+
+
+func remove_item(item:BaseItem):
+	# tira o item nos items do jogador, e apago o display no invetario do item
+	items.erase(item)
+	if item.display:
+		item.display.queue_free()
 
 # a função que organiza as areas de interação
 func sort_interection_areas(area1, area2):

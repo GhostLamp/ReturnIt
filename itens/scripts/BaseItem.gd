@@ -13,6 +13,9 @@ class_name BaseItem
 @export var name:String = "vazio"
 @export var color:Color 
 
+# é a variavel que segura o display no inventario desse item
+var display:ItemDisplay
+
 # quando o jogador aperta espaço essa vai rodar
 func on_jump(_player:Player):
 	pass

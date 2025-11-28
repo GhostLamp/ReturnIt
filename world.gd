@@ -30,4 +30,5 @@ func swap_level(new_level:String):
 	set_level()
 
 func set_level():
-	player.items.append_array(current_level.start_items)
+	for i in current_level.start_items:
+		player.add_item(i)

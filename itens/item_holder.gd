@@ -27,14 +27,14 @@ func interact(player: Player):
 	# quando interage com um pedestal ele checa se aqui tem um item
 	# se tiver coloca uma copia dele nos items do jogador e apaga o item daqui
 	if item:
-		player.items.append(item)
+		player.add_item(item)
 		item = null
 		$ColorRect2.color = Color.BLACK
 	
 	# se não cria uma copia do item aqui e apaga o do jogador
 	elif player.items.size() > 0:
 		item = player.items[0]
-		player.items.pop_at(0)
+		player.remove_item(item)
 		$ColorRect2.color = item.color
 	
 	emit_signal("update_door")
