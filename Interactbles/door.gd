@@ -12,9 +12,13 @@ signal swap_level
 
 @export var exit_door:bool = true
 
+# o texto que fica em cima da porta
+@export var nome:String = "saida"
+
 var open:bool = false
 
 func _ready() -> void:
+	$Label.text = nome
 	# conecta o sinal update_door de todos os item holders necessarios pra função update_door
 	# ai quando o jogador coloca ou tira uma coisa de um item holder o sinal vem pra cá e a porta pode checar se tem que tar aberta ou fechada
 	for i in needs:

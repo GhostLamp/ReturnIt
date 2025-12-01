@@ -9,8 +9,8 @@ z_index = 1
 script = ExtResource("1_b16gl")
 current_level = NodePath("Level_main")
 
+[node name="Level_main" parent="." instance=ExtResource("3_4eydd")]
+
 [node name="player" parent="." instance=ExtResource("2_nd312")]
 z_index = 1
-position = Vector2(192, 544)
-
-[node name="Level_main" parent="." instance=ExtResource("3_4eydd")]
+position = Vector2(352, 800)

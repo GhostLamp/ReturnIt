@@ -4,7 +4,7 @@ class_name WallJump
 # tempo que o jogador consegue se segurar na parede
 var heldTime = 4
 
-func on_jump(player:Player):
+func on_jump(player:Player) -> bool:
 	# só deixa pular da parede se tiver em contato só com a parede e esteja andando pra parede
 	if player.is_on_wall_only() and player.velocity.x != 0:
 		player.velocity.y = -600
@@ -12,6 +12,9 @@ func on_jump(player:Player):
 		player.velocity.x = -player.direction.x*player.speed/1.5
 		
 		heldTime -= 0.5
+		
+		return true
+	return false
 
 func on_wall(player:Player):
 	# so prende o jogador na parede se ele estiver caindo andando pra parede, e se tá andando pra parede

@@ -1,34 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgrafqq5y8er7"]
+[gd_scene load_steps=6 format=3 uid="uid://dgrafqq5y8er7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_d165g"]
 [ext_resource type="Texture2D" uid="uid://vsrrrgfr0q16" path="res://icon.svg" id="2_4mcho"]
 [ext_resource type="PackedScene" uid="uid://bpv6k272a2q41" path="res://itens/item_display.tscn" id="2_cfme6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_217uj"]
-size = Vector2(64, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_150wr"]
+size = Vector2(64, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s31rm"]
+size = Vector2(64, 5)
 
 [node name="player" type="CharacterBody2D"]
+platform_on_leave = 2
 script = ExtResource("1_d165g")
 itemDisplay = ExtResource("2_cfme6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_217uj")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4mcho")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_150wr")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventoryBackground" type="ColorRect" parent="CanvasLayer"]
-offset_left = 1000.0
+offset_left = 1528.0
 offset_top = 128.0
-offset_right = 1136.0
+offset_right = 1664.0
 offset_bottom = 264.0
 color = Color(0.121569, 0.121569, 0.121569, 0.662745)
 
 [node name="invetory" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 1000.0
+offset_left = 1528.0
 offset_top = 128.0
-offset_right = 1136.0
+offset_right = 1664.0
 offset_bottom = 264.0
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+platform_on_leave = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_s31rm")

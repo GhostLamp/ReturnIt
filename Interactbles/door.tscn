@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dytmvvxiryyvp"]
+
+[ext_resource type="Script" path="res://Interactbles/door.gd" id="1_8by0n"]
+[ext_resource type="Texture2D" uid="uid://vsrrrgfr0q16" path="res://icon.svg" id="2_chlow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s38s"]
+size = Vector2(80, 112)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vm8ie"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_8by0n")
+goes_to = "res://levels/level_main.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_8s38s")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.592157, 0.305882, 0.0392157, 1)
+position = Vector2(0, -24)
+scale = Vector2(0.625, 0.875)
+texture = ExtResource("2_chlow")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -112.0
+offset_right = 8.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "brah"
+label_settings = SubResource("LabelSettings_vm8ie")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

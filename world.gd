@@ -6,6 +6,7 @@ class_name World
 # o nivel atual
 @export var current_level:Level
 
+
 func _ready() -> void:
 	connect_door_signal(current_level.doors)
 	set_level()

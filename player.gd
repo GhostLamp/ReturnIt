@@ -23,7 +23,6 @@ var item_limit:int = 5
 # a door e o item holder se colocam aqui quando o jogador entra na area e se tiram quando ele sai
 var interaction_areas:Array[Node2D]
 
-
 var direction = Vector2(0,0)
 var gravity = 1800
 var time:float = 0
@@ -39,7 +38,7 @@ func _process(delta: float) -> void:
 	
 	# quando vc aperta f usa a função de interagir na primeira area 
 	# e manda o proprio o proprio jogador como argumento pra poder tirar e retirar items dele
-	if Input.is_action_just_pressed("f"):
+	if Input.is_action_just_pressed("i"):
 		if interaction_areas.size() > 0:
 			interaction_areas[0].interact(self)
 

@@ -17,8 +17,8 @@ class_name BaseItem
 var display:ItemDisplay
 
 # quando o jogador aperta espaço essa vai rodar
-func on_jump(_player:Player):
-	pass
+func on_jump(_player:Player) -> bool:
+	return false
 
 # quando o jogador tiver no chao essa vai rodar
 func on_floor(_player:Player):
@@ -27,3 +27,7 @@ func on_floor(_player:Player):
 # quando o jogador tiver só encostando em uma parede essa vai rodar
 func on_wall(_player:Player):
 	pass
+
+# quando empurra uma caixa
+func on_push(_player:Player) -> int:
+	return 0
