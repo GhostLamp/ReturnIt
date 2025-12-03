@@ -1,14 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://dytmvvxiryyvp"]
+[gd_scene load_steps=9 format=3 uid="uid://dytmvvxiryyvp"]
 
 [ext_resource type="Script" path="res://Interactbles/door.gd" id="1_8by0n"]
-[ext_resource type="Texture2D" uid="uid://vsrrrgfr0q16" path="res://icon.svg" id="2_chlow"]
+[ext_resource type="Texture2D" uid="uid://bpy1p7e0pkbgo" path="res://Portão.png" id="2_g7mlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s38s"]
 size = Vector2(80, 112)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vm8ie"]
 font_size = 24
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.317779, 0.485221, 0.564173, 1)
+
+[sub_resource type="Animation" id="Animation_67mfh"]
+resource_name = "open"
+length = 0.312506
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portão:region_rect")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 40, 64), Rect2(0, 52, 40, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_e53vq"]
+resource_name = "close"
+length = 0.187506
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portão:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1875),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 52, 40, 12), Rect2(0, 0, 40, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_y2km1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portão:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 40, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hf8rj"]
+_data = {
+"RESET": SubResource("Animation_y2km1"),
+"close": SubResource("Animation_e53vq"),
+"open": SubResource("Animation_67mfh")
+}
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_8by0n")
@@ -18,25 +74,39 @@ goes_to = "res://levels/level_main.tscn"
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_8s38s")
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.592157, 0.305882, 0.0392157, 1)
-position = Vector2(0, -24)
-scale = Vector2(0.625, 0.875)
-texture = ExtResource("2_chlow")
-
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
-offset_top = -112.0
+offset_top = -152.0
 offset_right = 8.0
-offset_bottom = -89.0
+offset_bottom = -118.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "brah"
 label_settings = SubResource("LabelSettings_vm8ie")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -96.0
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="Portão" type="Sprite2D" parent="."]
+position = Vector2(-40, -96)
+scale = Vector2(2, 2)
+texture = ExtResource("2_g7mlq")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 40, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hf8rj")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

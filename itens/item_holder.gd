@@ -11,7 +11,7 @@ func _ready() -> void:
 	if item:
 		$ColorRect2.color = item.color
 		return
-	$ColorRect2.color = Color.BLACK
+	$ColorRect2.color = Color.TRANSPARENT
 
 # se colocando ou tirando das areas de interação do jogador
 func _on_body_entered(body: Node2D) -> void:
@@ -37,7 +37,7 @@ func interact(player: Player):
 		
 		player.add_item(item.duplicate(false))
 		item = null
-		$ColorRect2.color = Color.BLACK
+		$ColorRect2.color = Color.TRANSPARENT
 	
 	# se não cria uma copia do item aqui e apaga o do jogador
 	elif player.items.size() > 0:

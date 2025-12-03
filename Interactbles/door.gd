@@ -17,6 +17,9 @@ signal swap_level
 
 var open:bool = false
 
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
+
 func _ready() -> void:
 	$Label.text = nome
 	# conecta o sinal update_door de todos os item holders necessarios pra função update_door
@@ -35,12 +38,12 @@ func update_door():
 			continue
 		
 		# se um item tiver faltando a porta é colocado como fechada retorna a função
-		modulate = Color.WHITE
+		animPlayer.play("close")
 		open = false
 		return
 	
 	# se todos os item holder tiverem seus items a função vai terminar o loop e acabar aqui 
-	modulate = Color.BLACK
+	animPlayer.play("open")
 	open = true
 
 func interact(_player: Player):

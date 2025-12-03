@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvkmnr7h5td5e"]
+[gd_scene load_steps=5 format=3 uid="uid://dvkmnr7h5td5e"]
 
 [ext_resource type="Script" path="res://box.gd" id="1_b78qs"]
+[ext_resource type="Texture2D" uid="uid://hctypf5rugrb" path="res://caixa.png" id="2_fo3ul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76yj0"]
 size = Vector2(64, 64)
@@ -28,12 +29,10 @@ target_position = Vector2(0, 64)
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_dwn7v")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -24.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 32.0
-color = Color(0.528079, 0.277294, 0, 1)
+[node name="Caixa" type="Sprite2D" parent="."]
+position = Vector2(-1.43051e-06, 8)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_fo3ul")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
