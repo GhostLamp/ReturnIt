@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Bateria" load_steps=3 format=3 uid="uid://e5t2wk6qv3bx"]
+
+[ext_resource type="Script" path="res://itens/scripts/bateria.gd" id="1_1yrbw"]
+[ext_resource type="PackedScene" uid="uid://c8gepnila2150" path="res://effects/eletricfied.tscn" id="1_san48"]
+
+[resource]
+script = ExtResource("1_1yrbw")
+effect = ExtResource("1_san48")
+name = "bateria"
+color = Color(1, 1, 0, 1)

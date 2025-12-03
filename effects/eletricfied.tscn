@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8gepnila2150"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_ywbob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dksl0"]
+size = Vector2(3, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grvus"]
+size = Vector2(38, 4.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwdf"]
+size = Vector2(3, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nobt"]
+size = Vector2(38, 3)
+
+[node name="eletricfied" type="Node2D" groups=["conductors"]]
+
+[node name="Charger" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ywbob")
+
+[node name="ChargerCollision" type="CollisionShape2D" parent="Charger"]
+position = Vector2(19.5, 1.5)
+shape = SubResource("RectangleShape2D_dksl0")
+
+[node name="Charger2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ywbob")
+
+[node name="ChargerCollision" type="CollisionShape2D" parent="Charger2"]
+position = Vector2(0, -28.875)
+shape = SubResource("RectangleShape2D_grvus")
+
+[node name="Charger3" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ywbob")
+
+[node name="ChargerCollision" type="CollisionShape2D" parent="Charger3"]
+position = Vector2(-19.5, 1.5)
+shape = SubResource("RectangleShape2D_8dwdf")
+
+[node name="Charger4" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ywbob")
+
+[node name="ChargerCollision" type="CollisionShape2D" parent="Charger4"]
+position = Vector2(0, 31.5)
+shape = SubResource("RectangleShape2D_2nobt")
+
+[connection signal="body_shape_entered" from="Charger" to="Charger" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Charger" to="Charger" method="_on_body_shape_exited"]
+[connection signal="body_shape_entered" from="Charger2" to="Charger2" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Charger2" to="Charger2" method="_on_body_shape_exited"]
+[connection signal="body_shape_entered" from="Charger3" to="Charger3" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Charger3" to="Charger3" method="_on_body_shape_exited"]
+[connection signal="body_shape_entered" from="Charger4" to="Charger4" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Charger4" to="Charger4" method="_on_body_shape_exited"]

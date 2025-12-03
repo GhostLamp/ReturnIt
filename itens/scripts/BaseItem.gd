@@ -24,6 +24,9 @@ func on_jump(_player:Player) -> bool:
 func on_floor(_player:Player):
 	pass
 
+func on_air(_player:Player):
+	pass
+
 # quando o jogador tiver só encostando em uma parede essa vai rodar
 func on_wall(_player:Player):
 	pass
@@ -31,3 +34,9 @@ func on_wall(_player:Player):
 # quando empurra uma caixa
 func on_push(_player:Player) -> int:
 	return 0
+
+func on_add(_player:Player):
+	pass
+
+func on_remove(_player:Player):
+	pass

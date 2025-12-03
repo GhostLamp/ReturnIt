@@ -8,8 +8,10 @@ func on_jump(player:Player) -> bool:
 	if not player.is_on_floor() and jumps > 0:
 		player.velocity.y = -800
 		jumps -= 1
+		return true
 	
-	return true
+	
+	return false
 
 # quando o jogador pisa no chão coloca a quantidade de pulos de volta a 1
 func on_floor(_player:Player):

@@ -77,7 +77,8 @@ func movement(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
 		# roda a função on_jump em todos items
 		for i in  items:
-			i.on_jump(self)
+			if i.on_jump(self):
+				break
 		
 		#só te joga pra cima se tiver no çhão
 		if is_on_floor():
@@ -99,6 +100,8 @@ func add_item(item:BaseItem):
 	new_display.displayColor = item.color
 	invetory.call_deferred("add_child",new_display)
 	
+	item.on_add(self)
+	
 	# uma referencia do display no item
 	item.display = new_display
 
@@ -106,6 +109,9 @@ func add_item(item:BaseItem):
 func remove_item(item:BaseItem):
 	# tira o item nos items do jogador, e apago o display no invetario do item
 	items.erase(item)
+	
+	item.on_remove(self)
+	
 	if item.display:
 		item.display.queue_free()
 
