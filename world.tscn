@@ -8,6 +8,7 @@
 z_index = 1
 script = ExtResource("1_b16gl")
 current_level = NodePath("Level_main")
+level_path = "res://levels/level_main.tscn"
 
 [node name="Level_main" parent="." instance=ExtResource("3_4eydd")]
 

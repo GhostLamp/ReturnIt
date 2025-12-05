@@ -5,7 +5,9 @@ class_name World
 
 # o nivel atual
 @export var current_level:Level
+@export_file("*.tscn") var level_path:String
 
+var last_player_items:Array
 
 func _ready() -> void:
 	connect_door_signal(current_level.doors)
@@ -20,6 +22,9 @@ func swap_level(new_level:String):
 	# apaga o lugar atual
 	if current_level:
 		current_level.queue_free()
+	
+	# salva o ultimo caminho
+	level_path = new_level
 	
 	# cria o novo 
 	var level = load(new_level).instantiate()
@@ -36,3 +41,9 @@ func set_level():
 			player.add_item(i.duplicate(false))
 	
 	player.global_position = current_level.start_door.global_position
+
+
+func reset():
+	for i in player.items.size():
+		player.remove_item(player.items[0])
+	swap_level(level_path)

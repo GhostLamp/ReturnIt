@@ -1,8 +1,16 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://duciivmq1v4jy"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://duciivmq1v4jy"]
 
 [ext_resource type="Texture2D" uid="uid://c4dr7egi474s4" path="res://Selection 2025-11-18T12.54.28.png" id="1_epnr7"]
-[ext_resource type="PackedScene" uid="uid://dvkmnr7h5td5e" path="res://Interactbles/box.tscn" id="2_nm0al"]
+[ext_resource type="PackedScene" uid="uid://dvkmnr7h5td5e" path="res://tiles/box.tscn" id="2_4dnc2"]
 [ext_resource type="PackedScene" uid="uid://bxpxl8aj838j" path="res://tiles/one_way_plat_form.tscn" id="3_505wx"]
+[ext_resource type="PackedScene" uid="uid://barctwckoi57f" path="res://tiles/eletricDoorVariants/eletric_doorDOWNClosed.tscn" id="4_3eifu"]
+[ext_resource type="PackedScene" uid="uid://dawj58hh4co0m" path="res://tiles/eletricDoorVariants/eletric_doorDOWNOpen.tscn" id="5_xkoqt"]
+[ext_resource type="PackedScene" uid="uid://bhkcwh7jxm606" path="res://tiles/eletricDoorVariants/eletric_doorLEFTClosed.tscn" id="6_1o11x"]
+[ext_resource type="PackedScene" uid="uid://b76jfy0mdpu8d" path="res://tiles/eletricDoorVariants/eletric_doorLEFTOpen.tscn" id="7_jtwwd"]
+[ext_resource type="PackedScene" uid="uid://vjyrmvm6k7p1" path="res://tiles/eletricDoorVariants/eletric_doorRIGHTClosed.tscn" id="8_tjl4w"]
+[ext_resource type="PackedScene" uid="uid://0coj8iydxc0x" path="res://tiles/eletricDoorVariants/eletric_doorRIGHTOpen.tscn" id="9_kwfrt"]
+[ext_resource type="PackedScene" uid="uid://ckvvkr3pxvv1g" path="res://tiles/eletricDoorVariants/eletric_doorUPClosed.tscn" id="10_goaa1"]
+[ext_resource type="PackedScene" uid="uid://sqe7rno24pu5" path="res://tiles/eletricDoorVariants/eletric_doorUPOpen.tscn" id="11_n6qv1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jscit"]
 texture = ExtResource("1_epnr7")
@@ -386,8 +394,20 @@ texture_region_size = Vector2i(64, 64)
 10:4/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gpmga"]
-scenes/1/scene = ExtResource("2_nm0al")
+resource_name = "objects"
+scenes/1/scene = ExtResource("2_4dnc2")
 scenes/2/scene = ExtResource("3_505wx")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_arydx"]
+resource_name = "eletricDoors"
+scenes/1/scene = ExtResource("4_3eifu")
+scenes/2/scene = ExtResource("5_xkoqt")
+scenes/3/scene = ExtResource("6_1o11x")
+scenes/4/scene = ExtResource("7_jtwwd")
+scenes/5/scene = ExtResource("8_tjl4w")
+scenes/6/scene = ExtResource("9_kwfrt")
+scenes/7/scene = ExtResource("10_goaa1")
+scenes/9/scene = ExtResource("11_n6qv1")
 
 [resource]
 tile_size = Vector2i(64, 64)
@@ -397,3 +417,4 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_jscit")
 sources/1 = SubResource("TileSetScenesCollectionSource_gpmga")
+sources/3 = SubResource("TileSetScenesCollectionSource_arydx")

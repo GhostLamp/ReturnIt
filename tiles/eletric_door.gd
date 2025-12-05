@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name EletricDoor
 
-
+@onready var timer: Timer = $Timer
 @onready var area_2d: Area2D = $Area2D
 @onready var area_colision: CollisionShape2D = $Area2D/areaColision
 
@@ -12,11 +12,14 @@ class_name EletricDoor
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-@onready var charger_collision: CollisionShape2D = $eletric_area/ChargerCollision
+@onready var charger_collision: CollisionShape2D = $Charger/ChargerCollision
 
 # se a porta deve se fechar ou abrir quando recebe energia
 @export var close_on_power:bool = false
 
+var time_to_refresh:float = 0.1
+
+var powered = false
 
 var tween:Tween
 
@@ -38,6 +41,8 @@ var charge_position_open = Vector2(0,-80)
 var charge_position_close = Vector2(0,32)
 
 func _ready() -> void:
+	# o tempo em que a função vai rodar o salveguarda
+	timer.wait_time = time_to_refresh
 	# quando a cena começa
 	color_rect.color = Color.WHITE
 	charger_collision.disabled = true
@@ -81,6 +86,7 @@ func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, _body_shape_inde
 			unpower()
 			return
 		
+		
 		# pega a coordenada no atlas do tile
 		var tiles:EletricMap = body
 		var coords = tiles.get_coords_for_body_rid(body_rid)
@@ -93,6 +99,22 @@ func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, _body_shape_inde
 		
 		else:
 			unpower()
+
+
+# essa função é mais um salve-gaurada pra impedir que ela fique presa enquanto tá ativa ou desativa dps de ser carregada e descarregada mt rapido
+# o eletric checker.get_overlapping_areas/bodies vai vê se tem alguma coisa marcada como eletrica emcontato com a porta
+# se não tiver nada e a porta tiver ativada, desativa ela
+func refresh():
+	if eletric_checker.get_overlapping_areas().size() == 0 and eletric_checker.get_overlapping_bodies().size() == 0 and powered:
+		unpower()
+		return
+	if (eletric_checker.get_overlapping_areas().size() > 0 or eletric_checker.get_overlapping_bodies().size() > 0)  and !powered:
+		power()
+		return
+	
+	# vez que esse timer acaba essa função é rodada e recomeça o timer
+	timer.start()
+
 
 func power():
 	# se já tiver um tween rolando para ele e cria um novo
@@ -107,6 +129,12 @@ func power():
 		close()
 	else:
 		open()
+	tween.tween_property(self,"powered",true,0.125)
+	
+	# reinicia o timer do refresh
+	timer.start()
+
+
 
 func unpower():
 	# primeiro checa se não tem mais nada carregando a porta
@@ -130,6 +158,10 @@ func unpower():
 		open()
 	else:
 		close()
+	tween.tween_property(self,"powered",false,0.125)
+	
+	# reinicia o timer do refresh
+	timer.start()
 
 
 func close():
@@ -146,7 +178,6 @@ func close():
 	tween.set_parallel().tween_property(collision_shape_2d,"position",collison_position_close,0.125)
 	
 	tween.set_parallel().tween_property(charger_collision,"position",charge_position_close,0.125)
-
 
 func open():
 	# move as posições da porta pro estado de aberto em 0.125 segundos

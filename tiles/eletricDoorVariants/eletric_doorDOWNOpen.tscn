@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://v8p7ikhj374c"]
+[gd_scene load_steps=7 format=3 uid="uid://dawj58hh4co0m"]
 
-[ext_resource type="Script" path="res://tiles/eletric_door.gd" id="1_bbdqc"]
-[ext_resource type="Script" path="res://area_2d.gd" id="2_0vpwf"]
+[ext_resource type="Script" path="res://tiles/eletric_door.gd" id="1_l64bw"]
+[ext_resource type="Script" path="res://area_2d.gd" id="2_m3ptu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sairk"]
 resource_local_to_scene = true
@@ -22,7 +22,8 @@ size = Vector2(64, 8)
 collision_layer = 5
 collision_mask = 5
 platform_on_leave = 2
-script = ExtResource("1_bbdqc")
+script = ExtResource("1_l64bw")
+close_on_power = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
@@ -44,10 +45,10 @@ collision_mask = 4
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_8omnw")
 
-[node name="Charger" type="Area2D" parent="." groups=["chargers", "conductors"]]
+[node name="Charger" type="Area2D" parent="." groups=["conductors"]]
 collision_layer = 12
 collision_mask = 4
-script = ExtResource("2_0vpwf")
+script = ExtResource("2_m3ptu")
 
 [node name="ChargerCollision" type="CollisionShape2D" parent="Charger"]
 position = Vector2(0, 32)
@@ -58,6 +59,7 @@ offset_left = -24.0
 offset_top = -96.0
 offset_right = 24.0
 offset_bottom = 32.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

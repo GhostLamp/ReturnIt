@@ -1,9 +1,12 @@
 extends Area2D
 class_name EnergyArea
 
+@onready var charger_collision: CollisionShape2D = $ChargerCollision
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
+	if !monitoring:
+		return
 	if body is EletricMap:
 		# quando um EletricMap entra na area pega as cordenadas do tile que tá dentro, 
 		# e manda o tileset usa power cell na coordenada pra "eletrizar" ela
@@ -16,8 +19,23 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int,
 		# se for uma EletricDoor que entrou, só usa a função power dela
 		body.power()
 
+# é uma salve guarda, quando um tile map é desativado, quando o tilemap é desativado essa função roda em todas as areas no grupo chargers
+func refresh():
+	# ela basicamente vê se tem algum eletricMap dentro dela, se tiver, ativa ele
+	var collisions = get_overlapping_bodies()
+	for i in collisions:
+		if i is EletricMap:
+			var coord = i.local_to_map(i.to_local(charger_collision.global_position))
+			i.powerCell(coord)
 
 func _on_body_shape_exited(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
+	if !monitoring:
+		return
+		
+	if body is EletricDoor:
+		# se for uma EletricDoor que saiu, só usa a função unpower dela
+		body.unpower()
+		
 	if body is EletricMap:
 		# se o tile não existir mais para a função
 		if !body.has_body_rid(body_rid):
@@ -34,11 +52,10 @@ func _on_body_shape_exited(body_rid: RID, body: Node2D, _body_shape_index: int, 
 		
 		# se não sobrar nada significa que o jogador saiu de contatocom o tilemap, e pode pegar a cordenada do tile que saiu e manda o tile map descarregar
 		# se não, significa que o saiu de contato de um tile pro outro, e não é pra descarregar ainda
-		if colliders.size() == 0:
-			var tiles:EletricMap = body
-			var coords = tiles.get_coords_for_body_rid(body_rid)
-			tiles.unpowerCell(coords)
-	
-	if body is EletricDoor:
-		# se for uma EletricDoor que saiu, só usa a função unpower dela
-		body.unpower()
+		if colliders.size() != 0:
+			return
+		
+		
+		var tiles:EletricMap = body
+		var coords = tiles.get_coords_for_body_rid(body_rid)
+		tiles.unpowerCell(coords)

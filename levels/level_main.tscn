@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cpxhe"]
 [ext_resource type="PackedScene" uid="uid://dytmvvxiryyvp" path="res://Interactbles/door.tscn" id="3_huub0"]
 [ext_resource type="TileSet" uid="uid://duciivmq1v4jy" path="res://levels/tile.tres" id="4_1dexw"]
-[ext_resource type="PackedScene" uid="uid://dvkmnr7h5td5e" path="res://Interactbles/box.tscn" id="4_nvkih"]
+[ext_resource type="PackedScene" uid="uid://dvkmnr7h5td5e" path="res://tiles/box.tscn" id="4_nvkih"]
 [ext_resource type="Texture2D" uid="uid://b8j44ek5vcsh6" path="res://Fundo-masmorra.jpg" id="5_lous1"]
 
 [node name="Level_main" type="Node2D" node_paths=PackedStringArray("doors", "start_door")]

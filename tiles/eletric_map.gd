@@ -1,11 +1,14 @@
 extends TileMapLayer
 class_name EletricMap
 
-var powerCellAtlas:Vector2 = Vector2(3,4)
-var unpowerCellAtlas:Vector2 = Vector2(10,4)
+var powerCellAtlas:Vector2i = Vector2(3,4)
+var unpowerCellAtlas:Vector2i = Vector2(10,4)
 
 func powerCell(coord:Vector2):
 	# coloca um tile carregado na cordenada e usa power map
+	if get_cell_atlas_coords(coord) != unpowerCellAtlas:
+		return
+	
 	set_cell(coord,0,powerCellAtlas)
 	powerMap()
 
@@ -41,3 +44,5 @@ func unpowerMap():
 				set_cell(j,0,unpowerCellAtlas)
 				unpowered_cells.append(j)
 				powered_cells.erase(j)
+	
+	get_tree().call_group("chargers","refresh")

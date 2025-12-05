@@ -1,55 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8gepnila2150"]
+[gd_scene load_steps=7 format=3 uid="uid://c8gepnila2150"]
 
 [ext_resource type="Script" path="res://area_2d.gd" id="1_ywbob"]
+[ext_resource type="Texture2D" uid="uid://dtyd2f7me70x1" path="res://pilha.png" id="2_rsnm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dksl0"]
-size = Vector2(3, 59)
+size = Vector2(6, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grvus"]
-size = Vector2(38, 4.25)
+size = Vector2(32, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dwdf"]
-size = Vector2(3, 59)
+size = Vector2(6, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nobt"]
-size = Vector2(38, 3)
+size = Vector2(32, 8)
 
-[node name="eletricfied" type="Node2D" groups=["conductors"]]
+[node name="eletricfied" type="Node2D"]
+show_behind_parent = true
 
-[node name="Charger" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Pilha" type="Sprite2D" parent="."]
+position = Vector2(-24, 0)
+texture = ExtResource("2_rsnm2")
+
+[node name="Charger" type="Area2D" parent="." groups=["chargers", "conductors"]]
+collision_layer = 12
 collision_mask = 4
 script = ExtResource("1_ywbob")
 
 [node name="ChargerCollision" type="CollisionShape2D" parent="Charger"]
-position = Vector2(19.5, 1.5)
+position = Vector2(24, 4)
 shape = SubResource("RectangleShape2D_dksl0")
 
-[node name="Charger2" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Charger2" type="Area2D" parent="." groups=["chargers", "conductors"]]
+collision_layer = 12
 collision_mask = 4
 script = ExtResource("1_ywbob")
 
 [node name="ChargerCollision" type="CollisionShape2D" parent="Charger2"]
-position = Vector2(0, -28.875)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_grvus")
 
-[node name="Charger3" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Charger3" type="Area2D" parent="." groups=["chargers", "conductors"]]
+collision_layer = 12
 collision_mask = 4
 script = ExtResource("1_ywbob")
 
 [node name="ChargerCollision" type="CollisionShape2D" parent="Charger3"]
-position = Vector2(-19.5, 1.5)
+position = Vector2(-24, 4)
 shape = SubResource("RectangleShape2D_8dwdf")
 
-[node name="Charger4" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Charger4" type="Area2D" parent="." groups=["chargers", "conductors"]]
+collision_layer = 12
 collision_mask = 4
 script = ExtResource("1_ywbob")
 
 [node name="ChargerCollision" type="CollisionShape2D" parent="Charger4"]
-position = Vector2(0, 31.5)
+position = Vector2(0, 36)
 shape = SubResource("RectangleShape2D_2nobt")
 
 [connection signal="body_shape_entered" from="Charger" to="Charger" method="_on_body_shape_entered"]

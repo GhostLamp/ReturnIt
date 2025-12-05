@@ -17,6 +17,7 @@ var item_limit:int = 5
 
 @export var speed:float = 400
 @export var accel:float = 4000
+@onready var anim_maneger: Node2D = $animManeger
 
 
 # eu uso esse array pra guardar todas as coisas que o jogador pode interagir no momento
@@ -41,6 +42,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("i"):
 		if interaction_areas.size() > 0:
 			interaction_areas[0].interact(self)
+	
+	# quando vc aperta r manda o mundo reiniciar o nivel
+	if Input.is_action_just_pressed("reset"):
+		get_parent().call_deferred("reset")
+	
+	animate()
 
 
 # sisteminha de movimentação basico
@@ -92,6 +99,13 @@ func movement(delta: float):
 	move_and_slide()
 
 
+func animate():
+	if direction.x > 0:
+		anim_maneger.scale.x = 1
+	if direction.x < 0:
+		anim_maneger.scale.x = -1
+
+
 func add_item(item:BaseItem):
 	# adiciona o item nos items do jogador, e cria um display no invetario
 	items.append(item)
@@ -120,3 +134,8 @@ func sort_interection_areas(area1, area2):
 	var area1_to_player = self.global_position.distance_to(area1.global_position)
 	var area2_to_player = self.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player
+
+
+func _on_crush_area_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
+	if body is EletricDoor or body is TileMap:
+		get_parent().call_deferred("reset")
