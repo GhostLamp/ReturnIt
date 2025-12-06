@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PuloDuplo" load_steps=2 format=3 uid="uid://ckognh5shqlag"]
 
-[ext_resource type="Script" path="res://itens/scripts/pulo_duplo.gd" id="1_qadli"]
+[ext_resource type="Script" uid="uid://dhnvpavv8jynx" path="res://itens/scripts/pulo_duplo.gd" id="1_qadli"]
 
 [resource]
 script = ExtResource("1_qadli")

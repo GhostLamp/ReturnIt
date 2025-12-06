@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://b3rclcr5jweo8"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_asp0u"]
-[ext_resource type="Script" path="res://itens/scripts/BaseItem.gd" id="2_qfpwi"]
+[ext_resource type="Script" uid="uid://cj6505mjv24l6" path="res://levels/level.gd" id="1_asp0u"]
+[ext_resource type="Script" uid="uid://cvumloe5n1kkm" path="res://itens/scripts/BaseItem.gd" id="2_qfpwi"]
 [ext_resource type="TileSet" uid="uid://duciivmq1v4jy" path="res://levels/tile.tres" id="2_wd8jv"]
 [ext_resource type="Resource" uid="uid://e5t2wk6qv3bx" path="res://itens/resource/Bateria.tres" id="3_4nsuo"]
 [ext_resource type="PackedScene" uid="uid://cpbbufcranpin" path="res://tiles/eletric_map.tscn" id="3_uq3ce"]

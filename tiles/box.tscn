@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvkmnr7h5td5e"]
 
-[ext_resource type="Script" path="res://box.gd" id="1_ffwsm"]
+[ext_resource type="Script" uid="uid://c7hrjub02sqwg" path="res://box.gd" id="1_ffwsm"]
 [ext_resource type="Texture2D" uid="uid://hctypf5rugrb" path="res://caixa.png" id="2_5yqrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76yj0"]

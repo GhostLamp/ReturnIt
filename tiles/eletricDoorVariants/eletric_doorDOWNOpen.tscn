@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dawj58hh4co0m"]
 
-[ext_resource type="Script" path="res://tiles/eletric_door.gd" id="1_l64bw"]
-[ext_resource type="Script" path="res://area_2d.gd" id="2_m3ptu"]
+[ext_resource type="Script" uid="uid://cql3cvxqxthrp" path="res://tiles/eletric_door.gd" id="1_l64bw"]
+[ext_resource type="Script" uid="uid://vaylndyj7qe3" path="res://area_2d.gd" id="2_m3ptu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sairk"]
 resource_local_to_scene = true

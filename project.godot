@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="pselWasd"
-run/main_scene="res://world.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+run/main_scene="uid://cyvqsda1dp04c"
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1728
 window/size/viewport_height=972
+
+[dotnet]
+
+project/assembly_name="pselWasd"
 
 [global_group]
 

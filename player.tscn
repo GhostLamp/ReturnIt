@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgrafqq5y8er7"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_d165g"]
+[ext_resource type="Script" uid="uid://hrf2ikc4gmcq" path="res://player.gd" id="1_d165g"]
 [ext_resource type="PackedScene" uid="uid://bpv6k272a2q41" path="res://itens/item_display.tscn" id="2_cfme6"]
 [ext_resource type="Texture2D" uid="uid://74muc1dity35" path="res://spritesheet (6).png" id="3_gthsm"]
 
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q8q6g"]
 _data = {
-"RESET": SubResource("Animation_enw5a"),
-"idle": SubResource("Animation_cejdm")
+&"RESET": SubResource("Animation_enw5a"),
+&"idle": SubResource("Animation_cejdm")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k8wbr"]

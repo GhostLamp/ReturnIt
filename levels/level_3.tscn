@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://btgopdyxnevyo"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_tv056"]
-[ext_resource type="Script" path="res://itens/scripts/BaseItem.gd" id="2_cbp48"]
+[ext_resource type="Script" uid="uid://cj6505mjv24l6" path="res://levels/level.gd" id="1_tv056"]
+[ext_resource type="Script" uid="uid://cvumloe5n1kkm" path="res://itens/scripts/BaseItem.gd" id="2_cbp48"]
 [ext_resource type="Resource" uid="uid://cao00drkumi84" path="res://itens/resource/Vazio.tres" id="3_xvc6p"]
 [ext_resource type="PackedScene" uid="uid://dytmvvxiryyvp" path="res://Interactbles/door.tscn" id="5_amjie"]
 [ext_resource type="PackedScene" uid="uid://bwy0r7d4y8r1a" path="res://itens/item_holder.tscn" id="6_4ce1p"]

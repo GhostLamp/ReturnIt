@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwy0r7d4y8r1a"]
 
-[ext_resource type="Script" path="res://itens/item_holder.gd" id="1_3hc54"]
+[ext_resource type="Script" uid="uid://12seeps1cffe" path="res://itens/item_holder.gd" id="1_3hc54"]
 [ext_resource type="Texture2D" uid="uid://dadohyfkdmf5d" path="res://pedestal-jarro.png" id="2_rul6o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o02u6"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dytmvvxiryyvp"]
 
-[ext_resource type="Script" path="res://tiles/door.gd" id="1_8by0n"]
+[ext_resource type="Script" uid="uid://cslac405lbfr4" path="res://tiles/door.gd" id="1_8by0n"]
 [ext_resource type="Texture2D" uid="uid://bpy1p7e0pkbgo" path="res://Portão.png" id="2_g7mlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s38s"]
@@ -61,9 +61,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hf8rj"]
 _data = {
-"RESET": SubResource("Animation_y2km1"),
-"close": SubResource("Animation_e53vq"),
-"open": SubResource("Animation_67mfh")
+&"RESET": SubResource("Animation_y2km1"),
+&"close": SubResource("Animation_e53vq"),
+&"open": SubResource("Animation_67mfh")
 }
 
 [node name="Door" type="Area2D"]

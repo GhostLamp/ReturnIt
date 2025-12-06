@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dncvm8cc4vvsa" path="res://ChatGPT Image 5 de dez. de 2025, 18_21_19.png" id="1_1l6qa"]
 [ext_resource type="Script" uid="uid://dqdman5b4qim" path="res://levels/menu_do_jogo.gd" id="1_ukrup"]
-[ext_resource type="FontFile" uid="uid://doby3c6doyteh" path="res://UncialAntiqua-Regular.ttf" id="3_d3l4e"]
+[ext_resource type="FontFile" uid="uid://dv2mjbaro4snn" path="res://UncialAntiqua-Regular.ttf" id="3_d3l4e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ghrw5"]
 font = ExtResource("3_d3l4e")
