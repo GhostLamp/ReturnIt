@@ -1,11 +1,14 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://duciivmq1v4jy"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://duciivmq1v4jy"]
 
 [ext_resource type="Texture2D" uid="uid://c4dr7egi474s4" path="res://Selection 2025-11-18T12.54.28.png" id="1_epnr7"]
 [ext_resource type="PackedScene" uid="uid://dvkmnr7h5td5e" path="res://tiles/box.tscn" id="2_4dnc2"]
 [ext_resource type="PackedScene" uid="uid://bxpxl8aj838j" path="res://tiles/one_way_plat_form.tscn" id="3_505wx"]
 [ext_resource type="PackedScene" uid="uid://barctwckoi57f" path="res://tiles/eletricDoorVariants/eletric_doorDOWNClosed.tscn" id="4_3eifu"]
+[ext_resource type="PackedScene" uid="uid://dofsvh8fl38fj" path="res://tiles/one_way_plat_formRIGHT.tscn" id="4_55qqa"]
+[ext_resource type="PackedScene" uid="uid://ddt4as58bjulu" path="res://tiles/one_way_plat_formLEFT.tscn" id="5_7o37v"]
 [ext_resource type="PackedScene" uid="uid://dawj58hh4co0m" path="res://tiles/eletricDoorVariants/eletric_doorDOWNOpen.tscn" id="5_xkoqt"]
 [ext_resource type="PackedScene" uid="uid://bhkcwh7jxm606" path="res://tiles/eletricDoorVariants/eletric_doorLEFTClosed.tscn" id="6_1o11x"]
+[ext_resource type="PackedScene" uid="uid://dfglkk703m6cc" path="res://tiles/one_way_plat_formDOWN.tscn" id="6_lqteh"]
 [ext_resource type="PackedScene" uid="uid://b76jfy0mdpu8d" path="res://tiles/eletricDoorVariants/eletric_doorLEFTOpen.tscn" id="7_jtwwd"]
 [ext_resource type="PackedScene" uid="uid://vjyrmvm6k7p1" path="res://tiles/eletricDoorVariants/eletric_doorRIGHTClosed.tscn" id="8_tjl4w"]
 [ext_resource type="PackedScene" uid="uid://0coj8iydxc0x" path="res://tiles/eletricDoorVariants/eletric_doorRIGHTOpen.tscn" id="9_kwfrt"]
@@ -397,6 +400,9 @@ texture_region_size = Vector2i(64, 64)
 resource_name = "objects"
 scenes/1/scene = ExtResource("2_4dnc2")
 scenes/2/scene = ExtResource("3_505wx")
+scenes/3/scene = ExtResource("4_55qqa")
+scenes/4/scene = ExtResource("5_7o37v")
+scenes/5/scene = ExtResource("6_lqteh")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_arydx"]
 resource_name = "eletricDoors"
@@ -412,6 +418,8 @@ scenes/9/scene = ExtResource("11_n6qv1")
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 0.345098, 0.25098, 1)

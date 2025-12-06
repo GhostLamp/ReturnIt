@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxpxl8aj838j"]
+[gd_scene load_steps=2 format=3 uid="uid://dfglkk703m6cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60d4c"]
 size = Vector2(64, 16)
 
 [node name="oneWayPlatForm" type="StaticBody2D"]
+rotation = 3.14159
 collision_layer = 16
 collision_mask = 16
 

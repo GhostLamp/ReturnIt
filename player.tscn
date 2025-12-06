@@ -50,9 +50,11 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k8wbr"]
-radius = 9.0
+radius = 1.41421
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 17
+collision_mask = 17
 platform_on_leave = 2
 script = ExtResource("1_d165g")
 itemDisplay = ExtResource("2_cfme6")
