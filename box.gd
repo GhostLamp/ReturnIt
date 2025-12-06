@@ -65,6 +65,7 @@ func interact(player: Player):
 func checkPos(force:int,direction:Vector2):
 	# coloca a posição onde a caixa vai parar, e atualiza o raycast para a posição de onde a caixa vai parar
 	var desired_position = global_position + tile_size *direction * force
+	tile_size*floor((desired_position)/tile_size)
 	ray_cast_2d.target_position = direction * tile_size * force * 1.5
 	ray_cast_2d.force_raycast_update()
 	

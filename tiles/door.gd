@@ -6,6 +6,7 @@ signal swap_level
 
 # a string do file path da cena que essa porta leva
 @export_file("*.tscn") var goes_to: String 
+@export var goes_to_door:int = 0
 
 # isso é todos os lugares em que coloca items que essa porta vai pecisar pra abrir
 @export var needs:Array[ItemHolder]
@@ -38,13 +39,15 @@ func update_door():
 			continue
 		
 		# se um item tiver faltando a porta é colocado como fechada retorna a função
-		animPlayer.play("close")
-		open = false
+		if open:
+			animPlayer.play("close")
+			open = false
 		return
 	
 	# se todos os item holder tiverem seus items a função vai terminar o loop e acabar aqui 
-	animPlayer.play("open")
-	open = true
+	if !open:
+		animPlayer.play("open")
+		open = true
 
 func interact(_player: Player):
 	# quando o jogador interage com a porta,ve se tá fechada
@@ -53,7 +56,7 @@ func interact(_player: Player):
 		return
 	
 	
-	emit_signal("swap_level",goes_to)
+	emit_signal("swap_level",goes_to,goes_to_door)
 
 # se colocando ou tirando das areas de interação do jogador
 func _on_body_entered(body: Node2D) -> void:

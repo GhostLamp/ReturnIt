@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bpy1p7e0pkbgo" path="res://Portão.png" id="2_g7mlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s38s"]
-size = Vector2(80, 112)
+size = Vector2(80, 128)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vm8ie"]
 font_size = 24
-font_color = Color(0.317779, 0.485221, 0.564173, 1)
 
 [sub_resource type="Animation" id="Animation_y2km1"]
 length = 0.001
@@ -71,7 +70,7 @@ script = ExtResource("1_8by0n")
 goes_to = "res://levels/level_main.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_8s38s")
 
 [node name="Label" type="Label" parent="."]
@@ -80,9 +79,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
-offset_top = -152.0
+offset_top = -144.0
 offset_right = 8.0
-offset_bottom = -118.0
+offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "brah"

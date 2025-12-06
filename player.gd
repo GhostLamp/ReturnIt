@@ -24,6 +24,8 @@ var item_limit:int = 5
 # a door e o item holder se colocam aqui quando o jogador entra na area e se tiram quando ele sai
 var interaction_areas:Array[Node2D]
 
+var can_jump:float = 0.2
+
 var direction = Vector2(0,0)
 var gravity = 1800
 var time:float = 0
@@ -55,6 +57,8 @@ func movement(delta: float):
 	direction = Input.get_vector("left", "right", "up", "down")
 	
 	
+	
+	
 	if is_on_floor():
 		# enquanto tá no chão roda a on_floor em todos itens
 		# eu sei que o for que passa por todos items parece ser devegar 
@@ -67,10 +71,13 @@ func movement(delta: float):
 		# e igualo y a 0 pra não carregar a velocidade dps do ultimo pulo
 		velocity.x = move_toward(velocity.x, direction.x * speed, accel*delta)
 		velocity.y = 0
+		
+		can_jump = 0.2
 	
 	else:
 		# mesma coisa da função passada mas com uma aceleração pior pra que o controle no ar seja mais lento 
 		velocity.x = move_toward(velocity.x,direction.x * speed,accel*delta/2)
+		can_jump -= delta
 		
 		# isso aqui para a subida do pulo quando vc solta espaço
 		if Input.is_action_just_released("ui_accept"):
@@ -88,13 +95,15 @@ func movement(delta: float):
 				break
 		
 		#só te joga pra cima se tiver no çhão
-		if is_on_floor():
+		if can_jump >= 0:
 			velocity.y = -800
 	
 	# mesma checagem dos itens só que pra quando o jogador tá só encostando na parede
 	if is_on_wall_only():
 		for i in  items:
 			i.on_wall(self)
+	
+	
 	
 	move_and_slide()
 

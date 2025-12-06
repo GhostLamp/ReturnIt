@@ -23,6 +23,7 @@ window/size/viewport_height=972
 [global_group]
 
 conductors="coisas que trasnitem eletricidade"
+world="place that holds levels"
 
 [input]
 
@@ -63,6 +64,7 @@ reset={
 2d_physics/layer_2="box"
 2d_physics/layer_3="conductor"
 2d_physics/layer_4="eletric"
+2d_physics/layer_5="one way platform"
 
 [rendering]
 

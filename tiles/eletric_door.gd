@@ -137,6 +137,7 @@ func power():
 
 
 func unpower():
+	await get_tree().create_timer(0.2).timeout
 	# primeiro checa se não tem mais nada carregando a porta
 	# pegando todas os corpos dentro da eletric_checker
 	# se for condutor ou um eletric map retorna a função
@@ -193,3 +194,5 @@ func open():
 	tween.set_parallel().tween_property(collision_shape_2d,"position",collison_position_open,0.125)
 	
 	tween.set_parallel().tween_property(charger_collision,"position",charge_position_open,0.125)
+
+# fazer isso deu vontade de me matar :3

@@ -16,7 +16,6 @@ size = Vector2(6, 56)
 size = Vector2(32, 8)
 
 [node name="eletricfied" type="Node2D"]
-show_behind_parent = true
 
 [node name="Pilha" type="Sprite2D" parent="."]
 position = Vector2(-24, 0)
