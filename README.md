@@ -7,7 +7,7 @@ Sobre:
 sua rota de acordo com quais habilidades precisa para alcançar a próxima localização.
 
 Implementação:
-* Engine: Unity
+* Engine: Godot
 * Música: BeepBox
 * Efeitos Sonoros: Sjfxr
 * PixelArt/Interface: LibreSprite
