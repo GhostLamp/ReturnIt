@@ -18,10 +18,11 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = -16.0
-color = Color(1, 1, 1, 0.486275)
+color = Color(0.407843, 0.407843, 0.407843, 0.407843)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = -24.0
+color = Color(0.408329, 0.408329, 0.408329, 1)
